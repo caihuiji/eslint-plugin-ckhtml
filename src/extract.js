@@ -30,6 +30,10 @@ function iterateScripts(code, options, onChunk) {
         if (attrs.type && !isJavaScriptMIMEType(attrs.type)) {
           return
         }
+        
+        if (attrs.hasOwnProperty('eslint-disable')) {
+          return;
+        }
 
         if (attrs.src) {
           return
